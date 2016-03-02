@@ -1,11 +1,8 @@
 <body>
 
-	<!-- Main navbar -->
-	
-	<!-- /main navbar -->
-
-
-	<!-- Page container -->
+<!-- Main navbar -->
+<!-- /main navbar -->
+<!-- Page container -->
 	<div class="page-container login-container">
 
 		<!-- Page content -->
@@ -18,18 +15,18 @@
 				<div class="content">
 
 					<!-- Registration form -->
-					<form action="index/html">
+					<form class="form floating-label" action="<?php echo base_url().'Home/user_register'; ?>" accept-charset="utf-8" method="post">
 						<div class="row">
 							<div class="col-lg-6 col-lg-offset-3">
 								<div class="panel registration-form">
 									<div class="panel-body">
 										<div class="text-center">
 											<div class="icon-object border-success text-success"><i class="icon-plus3"></i></div>
-											<h5 class="content-group-lg">Create account <small class="display-block">All fields are required</small></h5>
+											<h5 class="content-group-lg">Create account <small class="display-block">All fields are required</small></h5></br>
 										</div>
 
 										<div class="form-group has-feedback">
-											<input type="text" class="form-control" placeholder="Choose username" required/>
+											<input type="text" class="form-control" placeholder="Choose username" name="username" required/>
 											<div class="form-control-feedback">
 												<i class="icon-user-plus text-muted"></i>
 											</div>
@@ -38,7 +35,7 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group has-feedback">
-													<input type="text" class="form-control" placeholder="First name" required/>
+													<input type="text" class="form-control" placeholder="First name" name="first_name" required/>
 													<div class="form-control-feedback">
 														<i class="icon-user-check text-muted"></i>
 													</div>
@@ -47,7 +44,7 @@
 
 											<div class="col-md-6">
 												<div class="form-group has-feedback">
-													<input type="text" class="form-control" placeholder="Last name" required/>
+													<input type="text" class="form-control" placeholder="Last name" name="last_name" required/>
 													<div class="form-control-feedback">
 														<i class="icon-user-check text-muted"></i>
 													</div>
@@ -58,7 +55,7 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group has-feedback">
-													<input type="password" class="form-control" placeholder="Create password" required/>
+													<input type="password" class="form-control" placeholder="Create password" name="password" required/>
 													<div class="form-control-feedback">
 														<i class="icon-user-lock text-muted"></i>
 													</div>
@@ -78,7 +75,7 @@
 										
 											
 												<div class="form-group has-feedback">
-													<input type="email" class="form-control" placeholder="Your email" required/>
+													<input type="email" class="form-control" placeholder="Your email" name="email" required/>
 													<div class="form-control-feedback">
 														<i class="icon-mention text-muted"></i>
 													</div>
@@ -108,7 +105,7 @@
 											<div class="col-md-6">
 										<div class="form-group">
 											<label>Select Function: <span class="text-danger">*</span></label>
-											<select name="position" data-placeholder="Select position" class="select required">
+											<select name="function" data-placeholder="Select position"  class="select required">
 												<option></option>
 												<optgroup label="Developer Relations">
 													<option value="1">Sales Engineer</option>
@@ -155,5 +152,5 @@
 							</div>
 						</div>
 					</form>
-					<!-- /registration form -->
+<!-- /registration form -->
 

@@ -11,12 +11,12 @@ class UsersManagement {
         $CI_instance =& get_instance();
 
     	//Creating a new website
-    	$CI_instance->load->model('entities/admin');
+    	$CI_instance->load->model('entities/users');
 
     	//Selecting data from the database
-    	$query = $CI_instance->db->where('email',$user->email)
+    	$query = $CI_instance->db->where('username',$user->username)
                                     ->where('password',$user->password)
-                                    ->from('admins');
+                                    ->from('users');
         return $query->count_all_results()>0;
     }
 

@@ -30,11 +30,7 @@ class Migration_Users extends CI_Migration {
                                 'type' => 'VARCHAR',
                                 'constraint' => '200',
                         ),
-                        'avatar' => array(
-                                 'type'=>'VARCHAR',
-                                 'constraint' =>'200'
-                        ),
-
+                       
                         'function' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '200',
@@ -43,6 +39,10 @@ class Migration_Users extends CI_Migration {
                         'email' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '200',
+                        ),
+                        'acces' => array(
+                                'type' => 'VARCHAR',
+                                'constraint' => '3',
                         ),
                 ));
                 $this->dbforge->add_key('id',TRUE);

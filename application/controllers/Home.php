@@ -10,7 +10,7 @@ class Home extends CI_Controller {
 	public function user_register()
 	{
 		$this->load->model('entities/Users');
-		$user = nre Message();
+		$user = new Users();
 		$user->initialize($this->input->post());
 
 		UsersManagement::set_user($user);
