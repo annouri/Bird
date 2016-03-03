@@ -6,9 +6,6 @@ var $id = NULL;
     var $responsibles = '';
     var $description = '';
     var $due_date = '';
-    var $adjustment_details = '';
-    var $edition = '';
-    var $action_plan ='';
     function __construct()
     {
         // Call the Model constructor

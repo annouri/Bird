@@ -6,7 +6,7 @@ class Migration_Users extends CI_Migration {
 
         public function up()
         {
-                echo '<tr><td>slider_images</td>';
+                echo '<tr><td>Users</td>';
                 $this->dbforge->add_field(array(
                         'id' => array(
                                 'type' => 'INT',
