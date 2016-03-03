@@ -26,7 +26,37 @@ class UsersManagement {
     	$CI_instance = & get_instance();
     	$CI_instance->db->insert('Users',$user);
     }
-   
+   public static function get_user($email)
+    {
+        //Getting CI Instance
+        $CI_instance =& get_instance();
+
+        //Creating a new website
+        $CI_instance->load->model('entities/Users');
+
+        //Selecting data from the database
+        $query = $CI_instance->db->where('email',$email)
+                                    ->from('users');
+
+        //Getting query result
+        $result = $query->get();
+        $result = $result->result();
+        $result = $result[0];
+
+        //Instancianting a new user
+        $user = Array();
+        $user['id'] = $result->id;
+        $user['email'] = $result->email;
+        $user['password'] = $result->password;
+        $user['first_name'] = $result->first_name;
+        $user['last_name' ]= $result->last_name;
+        $user['password ']= $result->password;
+        $user['acces' ]= $result->acces;
+        $user['function' ]= $result->function;
+
+        //Returning result
+        return $user;
+    }
 
 }
 

@@ -88,7 +88,7 @@
 											
 										<div class="form-group">
 											<label>Select Department: <span class="text-danger">*</span></label>
-											<select name="position" data-placeholder="Select position" class="select required">
+											<select name="position" data-placeholder="Select position" class="select required" required/>
 												<option></option>
 												<optgroup label="Developer Relations">
 													<option value="1">Sales Engineer</option>
@@ -105,7 +105,7 @@
 											<div class="col-md-6">
 										<div class="form-group">
 											<label>Select Function: <span class="text-danger">*</span></label>
-											<select name="function" data-placeholder="Select position"  class="select required">
+											<select name="function" data-placeholder="Select position"  class="select required" required/>
 												<option></option>
 												<optgroup label="Developer Relations">
 													<option value="1">Sales Engineer</option>
@@ -120,7 +120,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label>Select Manager: <span class="text-danger">*</span></label>
-											<select name="position" data-placeholder="Select position" class="select required">
+											<select name="position" data-placeholder="Select position" class="select required" required/>
 												<option></option>
 												<optgroup label="Developer Relations">
 													<option value="1">Sales Engineer</option>

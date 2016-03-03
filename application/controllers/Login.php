@@ -14,13 +14,13 @@ class Login extends CI_Controller {
 		$user->initialize_login($this->input->post());
 
 		UsersManagement::login($user);
-		var_dump($user);
 		if (UsersManagement::login($user)) {
-			echo "hello";
-			# code...
+			$this->load->view('front/header');
+			$this->load->view('front/index',$user);
+			$this->load->view('front/footer');
 		}
 		else
-			echo "not helloe";
+			redirect(base_url()."Login", "location");
 	}
 		
 }
