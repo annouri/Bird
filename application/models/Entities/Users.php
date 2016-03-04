@@ -10,10 +10,11 @@ class Users extends CI_Model {
     var $first_name = '';
     var $last_name = '';
     var $password ='';
-    var $acces= '';
+    var $is_verified= '';
+    var $hash = '';
     var $function='';
     var $email = '';
-
+    
     function __construct()
     {
         // Call the Model constructor
@@ -25,8 +26,9 @@ class Users extends CI_Model {
         $this->username = $data['username'];
         $this->first_name = $data['first_name'];
         $this->last_name = $data['last_name'];
-        $this->acces = "0";
-        $this->password = $data['password'];
+        $this->is_verified = "0";
+        $this->hash = md5(rand(0,1000));
+        $this->password = md5($data['password']);
         $this->function = $data['function'];
         $this->email = $data['email'];
         

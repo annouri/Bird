@@ -26,6 +26,14 @@ class Migration_Users extends CI_Migration {
                                  'type'=>'VARCHAR',
                                  'constraint' =>'200'
                         ),
+                        'is_verified' => array(
+                                 'type'=>'VARCHAR',
+                                 'constraint' =>'200'
+                        ),
+                        'hash' => array(
+                                 'type'=>'VARCHAR',
+                                 'constraint' =>'200'
+                        ),
                         'password' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '200',
@@ -40,10 +48,7 @@ class Migration_Users extends CI_Migration {
                                 'type' => 'VARCHAR',
                                 'constraint' => '200',
                         ),
-                        'acces' => array(
-                                'type' => 'VARCHAR',
-                                'constraint' => '3',
-                        ),
+                        
                 ));
                 $this->dbforge->add_key('id',TRUE);
                 $this->dbforge->create_table('users');
