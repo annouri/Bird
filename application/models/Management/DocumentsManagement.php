@@ -3,22 +3,42 @@
 // Author : Annouri Ilias
 // Description : Class managing the user
 
-class UsersManagement {
+class DocumentsManagement {
     
-    public static function login($user)
+    public static function get_document_by_id(&id)
+    {
+        $CI_instance= & get_instance();
+        $CI_instance->load->model('entities/Documents');
+        $query = $CI_instance->db->where('id_document',$id)
+                                    >from('documents');
+        return $query->count_all_results()>0;
+        //Getting query result
+        $result = $query->get();
+        $result = $result->result();
+        $result = $result[0];
+
+        //Instancianting a new user
+        $document = Array();
+        $document['id_document'] = $result->id_document;
+        $document['type'] = $result->type;
+        $document['category'] = $result->category;
+        $document['Description'] = $result->Description;
+        $document['edition' ]= $result->edition;
+        $document['date_document_creation ']= $result->date_document_creation;
+        
+
+        //Returning result
+        return $document;
+
+    }
+    public static function set_document($document)
     {
         //Getting CI Instance
         $CI_instance =& get_instance();
 
     	//Creating a new website
-    	$CI_instance->load->model('entities/users');
-
-    	//Selecting data from the database
-    	$query = $CI_instance->db->where('username',$user->username)
-                                    ->where('password',$user->password)
-                                    ->where('is_verified',1)
-                                    ->from('users');
-        return $query->count_all_results()>0;
+    	$CI_instance->db->insert('documents',$document);
+;
     }
 
     public static function set_user($user)
@@ -46,7 +66,7 @@ class UsersManagement {
 
         //Instancianting a new user
         $user = Array();
-        $user['id_user'] = $result->id;
+        $user['id'] = $result->id;
         $user['email'] = $result->email;
         $user['password'] = $result->password;
         $user['first_name'] = $result->first_name;
@@ -78,7 +98,7 @@ class UsersManagement {
 
         //Instancianting a new user
         $user = Array();
-        $user['id_user'] = $result->id;
+        $user['id'] = $result->id;
         $user['email'] = $result->email;
         $user['password'] = $result->password;
         $user['first_name'] = $result->first_name;

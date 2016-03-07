@@ -3,41 +3,58 @@
 // Migration class : Action_plam to creat Action_plan table in the data base
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_Action_Plan extends CI_Migration {
+class Migration_Adjustment_detail extends CI_Migration {
  
 	 public function up()
 	 	{
-	 			echo '<tr><td>Action_plan</td>';
+	 	echo '<tr><td>Adjustment</td>';
                 $this->dbforge->add_field(array(
-                        'id' => array(
+                        'id_adjustment_details' => array(
                                 'type' => 'INT',
                                 'constraint' => '11',
                                 'unsigned' => TRUE,
                                 'auto_increment' => TRUE
                         ),
-                        'root_cause' => array(
+                        'part_number' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '100',
                         ),
-                        'corective_actions' => array(
+                        'quantity' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '100',
                         ),
-                        'responsibles' => array(
+                        'lot' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '100',
                         ),
-                        'description' => array(
+                        'location' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '100',
                         ),
-                        'due_date' => array(
+                        'site' => array(
+                                'type' => 'VARCHAR',
+                                'constraint' => '100',
+                        ),
+                        'std_unit_cost_mad' => array(
+                                'type' => 'VARCHAR',
+                                'constraint' => '100',
+                        ),
+                        'net_adj_value_mad' => array(
+                                'type' => 'VARCHAR',
+                                'constraint' => '100',
+                        ),
+                        'net_adj_value_dollar' => array(
+                                'type' => 'VARCHAR',
+                                'constraint' => '100',
+                        ),
+                        'gross_dollar' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '100',
                         ),
                 ));
-				$this->dbforge->add_key('id',TRUE);
-                $this->dbforge->create_table('Action_plan');
+		$this->dbforge->add_key('id_adjustment_detail',TRUE);
+                $this->dbforge->create_table('adjustment_details');
+                
                 echo '<td><i class="fa fa-check"></i></td>';
                 
                 echo '<td><i class="fa fa-check"></i></td>';
@@ -45,7 +62,7 @@ class Migration_Action_Plan extends CI_Migration {
 
  public function down()
         {
-                $this->dbforge->drop_table('Action_plan');
+                $this->dbforge->drop_table('adjustment_details');
         }
 }
 

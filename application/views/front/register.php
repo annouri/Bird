@@ -91,10 +91,10 @@
 											<select name="position" data-placeholder="Select position" class="select required" required/>
 												<option></option>
 												<optgroup label="Developer Relations">
-													<option value="1">Sales Engineer</option>
-													<option value="2">Ads Solutions Consultant</option>
-													<option value="3">Technical Solutions Consultant</option>
-													<option value="4">Business Intern</option>
+													<option value="logistic">Sales Engineer</option>
+													<option value="Finance">Ads Solutions Consultant</option>
+													<option value="Engenneir">Technical Solutions Consultant</option>
+													
 												</optgroup>
 
 											</select>

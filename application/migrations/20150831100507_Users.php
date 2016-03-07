@@ -8,7 +8,7 @@ class Migration_Users extends CI_Migration {
         {
                 echo '<tr><td>Users</td>';
                 $this->dbforge->add_field(array(
-                        'id' => array(
+                        'id_user' => array(
                                 'type' => 'INT',
                                 'constraint' => '11',
                                 'unsigned' => TRUE,
@@ -50,7 +50,7 @@ class Migration_Users extends CI_Migration {
                         ),
                         
                 ));
-                $this->dbforge->add_key('id',TRUE);
+                $this->dbforge->add_key('id_user',TRUE);
                 $this->dbforge->create_table('users');
                 echo '<td><i class="fa fa-check"></i></td>';
                 

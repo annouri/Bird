@@ -5,7 +5,7 @@
 
 class Users extends CI_Model {
 
-	var $id = NULL;
+	var $id_user = NULL;
     var $username = '';
     var $first_name = '';
     var $last_name = '';

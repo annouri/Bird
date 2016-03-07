@@ -7,7 +7,23 @@ class Home extends CI_Controller {
 		$this->load->view("front/register");
 		$this->load->view("front/footer");
 	}
-	public function user_register()
+	public function document()
+  {
+    $this->load->view("front/header");
+    $this->load->view("front/Document");
+    $this->load->view("front/footer");
+  }
+  public function add_document()
+  {
+    $this->load->model('entities/Documents');
+    $document = new Documents();
+    $document->initialize($this->input->post());
+
+    UsersManagement::set_user($user);
+    $this->send_confirmation();
+    redirect(base_url()."Home/verif", "location");
+  }
+  public function user_register()
 	{
 		$this->load->model('entities/Users');
 		$user = new Users();
@@ -27,9 +43,7 @@ public function verif()
 
 }
 
-
-  
-  public function send_confirmation() {
+public function send_confirmation() {
         
       
 
