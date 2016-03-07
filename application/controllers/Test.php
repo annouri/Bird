@@ -1,11 +1,13 @@
 <?php
-class Document extends CI_Controller {
+class Test extends CI_Controller {
 public function index()
 	{
-		$this->load->view("front/header");
-		$this->load->view("front/document");
-		$this->load->view("front/footer");
-	}
+	
+	 //$manager = ManagersManagement::get_all_managers();
+  
+   var_dump(ManagersManagement::get_all_managers());
+   
+  }
 public function add_document_header()
   {
     $this->load->model('entities/Documents');

@@ -2,56 +2,52 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_Users extends CI_Migration {
+class Migration_Messages extends CI_Migration {
 
         public function up()
         {
                 echo '<tr><td>Users</td>';
                 $this->dbforge->add_field(array(
-                        'id_user' => array(
+                        'id_message' => array(
                                 'type' => 'INT',
                                 'constraint' => '11',
                                 'unsigned' => TRUE,
                                 'auto_increment' => TRUE
                         ),
-                        'username' => array(
+                        'object' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '100',
                         ),
-                        'first_name' => array(
+                        'content' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '200',
                         ),
-                        'last_name' => array(
+                        'date' => array(
                                  'type'=>'VARCHAR',
                                  'constraint' =>'200'
                         ),
-                        'is_verified' => array(
-                                 'type'=>'VARCHAR',
-                                 'constraint' =>'200'
-                        ),
-                        'hash' => array(
-                                 'type'=>'VARCHAR',
-                                 'constraint' =>'200'
-                        ),
-                        'password' => array(
+                        
+
+                        'date' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '200',
                         ),
                        
-                        'function' => array(
+                        'sender' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '200',
                         ),
-
-                        'email' => array(
+                        'receiver' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '200',
                         ),
                         
+                        
                 ));
-                $this->dbforge->add_key('id_user',TRUE);
-                $this->dbforge->create_table('users');
+                $this->dbforge->add_key('id_message',TRUE);
+                $this->dbforge->create_table('messages');
+                $this->db->query('ALTER TABLE messages ENGINE=InnoDB;');
+                
                 echo '<td><i class="fa fa-check"></i></td>';
                 
                 echo '<td><i class="fa fa-check"></i></td>';
@@ -59,7 +55,7 @@ class Migration_Users extends CI_Migration {
 
         public function down()
         {
-                $this->dbforge->drop_table('users');
+                $this->dbforge->drop_table('messages');
         }
 
         
@@ -68,5 +64,5 @@ class Migration_Users extends CI_Migration {
 ?>
 
 
-<?php
+
 
