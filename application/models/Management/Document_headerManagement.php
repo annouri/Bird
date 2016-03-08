@@ -24,17 +24,18 @@ class Document_headerManagement {
             $CI_instance->load->model('entities/Document_header');
             $temporary_Document_header_element = new Document_header();
             
-            $temporary_Document_header_element->id_Document_header = $value->id_Document_header;
+            $temporary_Document_header_element->id_document_header = $value->id_document_header;
             $temporary_Document_header_element->type = $value->type;
+            $temporary_Document_header_element->due_date = $value->due_date;
             $temporary_Document_header_element->category = $value->category;
             $temporary_Document_header_element->description = $value->description;
             $temporary_Document_header_element->edition = $value->edition;
             $temporary_Document_header_element->root_cause=$value->root_cause;
             $temporary_Document_header_element->corective_actions=$value->corective_actions;
             $temporary_Document_header_element->responsibles=$value->responsibles;
-            $temporary_Document_header_element->user_id=$value->user_id;
+            $temporary_Document_header_element->userd_id=$value->userd_id;
             $temporary_Document_header_element->responsibles=$value->responsibles;
-            $temporary_Document_header_element->manager_id=$value->manager_id;
+            $temporary_Document_header_element->managerd_id=$value->managerd_id;
             $temporary_Document_header_element->location = $value->location;
             $Document_headers[$key]=$temporary_Document_header_element;
             }
@@ -51,11 +52,11 @@ class Document_headerManagement {
         
         $query = $CI_instance->db->select('*')
                                  ->from('document_header')
-                                 ->join('users','document_header.user_id=users.id_user')
+                                 ->join('users','document_header.userd_id=users.id_user')
                                  ->where('users.email',$email);
         
         //Getting query result
-        $result = $query->get();
+           $result = $query->get();
         $result = $result->result();
 
         if (count($result)>0)
@@ -63,19 +64,20 @@ class Document_headerManagement {
             foreach ($result as $key => $value) 
             {   
             $CI_instance->load->model('entities/Document_header');
-            $document_header = new Document_header();
+            $temporary_Document_header_element = new Document_header();
             
-             $temporary_Document_header_element->id_Document_header = $value->id_Document_header;
+            $temporary_Document_header_element->id_document_header = $value->id_document_header;
             $temporary_Document_header_element->type = $value->type;
+            $temporary_Document_header_element->due_date = $value->due_date;
             $temporary_Document_header_element->category = $value->category;
             $temporary_Document_header_element->description = $value->description;
             $temporary_Document_header_element->edition = $value->edition;
             $temporary_Document_header_element->root_cause=$value->root_cause;
             $temporary_Document_header_element->corective_actions=$value->corective_actions;
             $temporary_Document_header_element->responsibles=$value->responsibles;
-            $temporary_Document_header_element->user_id=$value->user_id;
+            $temporary_Document_header_element->userd_id=$value->userd_id;
             $temporary_Document_header_element->responsibles=$value->responsibles;
-            $temporary_Document_header_element->manager_id=$value->manager_id;
+            $temporary_Document_header_element->managerd_id=$value->managerd_id;
             $temporary_Document_header_element->location = $value->location;
             $Document_headers[$key]=$temporary_Document_header_element;
             }
@@ -90,8 +92,8 @@ class Document_headerManagement {
         
         $query = $CI_instance->db->select('*')
                                  ->from('document_header')
-                                 ->join('managers','document_header.manager_id=managers.id_manager')
-                                 ->where('users.email',$email);
+                                 ->join('managers','document_header.managerd_id=managers.id_manager')
+                                 ->where('managers.manager_email',$manager_email);
         
         //Getting query result
         $result = $query->get();
@@ -102,19 +104,20 @@ class Document_headerManagement {
             foreach ($result as $key => $value) 
             {   
             $CI_instance->load->model('entities/Document_header');
-            $document_header = new Document_header();
+            $temporary_Document_header_element = new Document_header();
             
-             $temporary_Document_header_element->id_Document_header = $value->id_Document_header;
+            $temporary_Document_header_element->id_document_header = $value->id_document_header;
             $temporary_Document_header_element->type = $value->type;
+            $temporary_Document_header_element->due_date = $value->due_date;
             $temporary_Document_header_element->category = $value->category;
             $temporary_Document_header_element->description = $value->description;
             $temporary_Document_header_element->edition = $value->edition;
             $temporary_Document_header_element->root_cause=$value->root_cause;
             $temporary_Document_header_element->corective_actions=$value->corective_actions;
             $temporary_Document_header_element->responsibles=$value->responsibles;
-            $temporary_Document_header_element->user_id=$value->user_id;
+            $temporary_Document_header_element->userd_id=$value->userd_id;
             $temporary_Document_header_element->responsibles=$value->responsibles;
-            $temporary_Document_header_element->manager_id=$value->manager_id;
+            $temporary_Document_header_element->managerd_id=$value->managerd_id;
             $temporary_Document_header_element->location = $value->location;
             $Document_headers[$key]=$temporary_Document_header_element;
             }
@@ -140,22 +143,21 @@ class Document_headerManagement {
             foreach ($result as $key => $value) 
             {   
             $CI_instance->load->model('entities/Document_header');
-            $document_header = new Document_header();
+            $temporary_Document_header_element = new Document_header();
             
-            $temporary_Document_header_element->id_Document_header = $value->id_Document_header;
+            $temporary_Document_header_element->id_document_header = $value->id_document_header;
             $temporary_Document_header_element->type = $value->type;
+            $temporary_Document_header_element->due_date = $value->due_date;
             $temporary_Document_header_element->category = $value->category;
             $temporary_Document_header_element->description = $value->description;
             $temporary_Document_header_element->edition = $value->edition;
             $temporary_Document_header_element->root_cause=$value->root_cause;
             $temporary_Document_header_element->corective_actions=$value->corective_actions;
             $temporary_Document_header_element->responsibles=$value->responsibles;
-            $temporary_Document_header_element->user_id=$value->user_id;
+            $temporary_Document_header_element->userd_id=$value->userd_id;
             $temporary_Document_header_element->responsibles=$value->responsibles;
-            $temporary_Document_header_element->manager_id=$value->manager_id;
+            $temporary_Document_header_element->managerd_id=$value->managerd_id;
             $temporary_Document_header_element->location = $value->location;
-            
-            
             $Document_headers[$key]=$temporary_Document_header_element;
             }
         return $Document_headers;   

@@ -5,7 +5,7 @@ public function index()
 	
 	 //$manager = ManagersManagement::get_all_managers();
   
-   var_dump(ManagersManagement::get_all_managers());
+   var_dump(Document_headerManagement::get_document_header_by_location('2'));
    
   }
 public function add_document_header()

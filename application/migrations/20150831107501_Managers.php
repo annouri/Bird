@@ -48,10 +48,33 @@ class Migration_Managers extends CI_Migration {
                 ));
 				$this->dbforge->add_key('id_manager',TRUE);
                 $this->dbforge->create_table('managers');
+                $this->seed();
 	}
 	public function down()
         {
                 $this->dbforge->drop_table('managers');
+        }
+    
+    public function seed()
+        {
+            
+        $this->load->model('entities/Manager');
+        for ($i=1; $i <5; $i++) { 
+            $manager = new Manager();
+
+            $manager->manager_username = "manager[".$i." ]";
+            $manager->manager_first_name = "manager_first_name[".$i."]";
+            $manager->manager_last_name = "manager_last_name[".$i."]";
+            $manager->manager_email ="manager[".$i."]@gmail.com";
+            $manager->manager_password="strongpassword[".$i."]";
+            $manager->manager_function="manager_function[".$i."]";
+            $manager->manager_department="manager_department[".$i."]";
+            
+            
+            $this->db->insert('managers',$manager);
+
+            }
+            
         }
 
 

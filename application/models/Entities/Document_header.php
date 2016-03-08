@@ -13,8 +13,8 @@ class Document_header extends CI_Model {
 		var $due_date='';
 		var $location='';
 		
-		var $user_id='';
-		var $manager_id='';
+		var $userd_id=NULL;
+		var $managerd_id=NULL;
 
 		
 	function __construct()

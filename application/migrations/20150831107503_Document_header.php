@@ -46,33 +46,36 @@ class Migration_Document_header extends CI_Migration {
                                 'constraint' => '200',
                         ),
                         'due_date' => array(
-                                'type' => 'INT',
-                                'constraint' => '11',
-                                'unsigned' => TRUE,
+                                'type' => 'DATETIME',
+                                  
                         ),
                         'location' => array(
                                 'type' => 'INT',
                                 'constraint' => '11',
-                                'unsigned' => TRUE,
+                                
                         ),
-                        'user_id' => array(
+                        'userd_id' => array(
                                 'type' => 'INT',
                                 'constraint' => '11',
                                 'unsigned' => TRUE,
                         ),
-                        'manager_id' => array(
+                        'managerd_id' => array(
                                 'type' => 'INT',
                                 'constraint' => '11',
                                 'unsigned' => TRUE,
+                        
                         ),
                         
                 ));
                 $this->dbforge->add_key('id_document_header',TRUE);
                 $this->dbforge->create_table('document_header');
                 $this->db->query('ALTER TABLE document_header ENGINE=InnoDB;');
-                $this->db->query('ALTER TABLE document_header ADD CONSTRAINT fk_document_header_userID FOREIGN KEY (user_id) REFERENCES users(id_user) ON UPDATE CASCADE ON DELETE CASCADE;');
-                $this->db->query('ALTER TABLE document_header ADD CONSTRAINT fk_document_header_managerID FOREIGN KEY (manager_id) REFERENCES managers(id_manager) ON UPDATE CASCADE ON DELETE CASCADE;');
+                $this->db->query('ALTER TABLE document_header ADD CONSTRAINT fk_document_header_userID FOREIGN KEY (userd_id) REFERENCES users(id_user) ON UPDATE CASCADE ON DELETE CASCADE;');
+                $this->db->query('ALTER TABLE document_header ADD CONSTRAINT fk_document_header_managerID FOREIGN KEY (managerd_id) REFERENCES managers(id_manager) ON UPDATE CASCADE ON DELETE CASCADE;');
+                
+
                 echo '<td><i class="fa fa-check"></i></td>';
+                
                 
                 echo '<td><i class="fa fa-check"></i></td>';
         }
@@ -80,6 +83,31 @@ class Migration_Document_header extends CI_Migration {
         public function down()
         {
                 $this->dbforge->drop_table('document_header');
+        }
+        public function seed()
+       {
+            
+        $this->load->model('entities/document_header');
+        $document_header = new Document_header();
+        for ($i=1; $i <5; $i++) { 
+            
+
+            $document_header->type = "type[".$i." ]";
+            $document_header->category = "category[".$i."]";
+            $document_header->description = "description[".$i."]";
+            $document_header->edition ="edition[".$i."]@gmail.com";
+            $document_header->root_cause="root_cause[".$i."]";
+            $document_header->corective_actions="corective_actions[".$i."]";
+            $document_header->responsibles="responsibles[".$i."]";
+            $document_header->location="location[".$i."]";
+            $document_header->userd_id="userd_id[".$i."]";
+            $document_header->managerd_id="managerd_id[".$i."]";
+            
+            
+            $this->db->insert('document_header',$document_header);
+
+            }
+        
         }
 
         

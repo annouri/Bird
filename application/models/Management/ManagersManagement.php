@@ -16,14 +16,14 @@ class ManagersManagement {
         //Getting query result
         $result = $query->get();
         $result = $result->result();
-
+       
         if (count($result)>0)
         {
             foreach ($result as $key => $value) 
             {   
-            $CI_instance->load->model('entities/Manager');
-            $temporary_manager_element = new Manager();
             
+             $CI_instance->load->model('entities/Manager');
+            $temporary_manager_element = new Manager();
             $temporary_manager_element->id_manager = $value->id_manager;
             $temporary_manager_element->manager_username = $value->manager_username;
             $temporary_manager_element->manager_first_name = $value->manager_first_name;
@@ -45,7 +45,7 @@ class ManagersManagement {
     {
         $CI_instance= & get_instance();
         
-        $query = $CI_instance->db->where('email',$email)
+        $query = $CI_instance->db->where('manager_email',$email)
                                  ->from('managers');
         
         //Getting query result
@@ -59,7 +59,7 @@ class ManagersManagement {
 
         //Instancianting a new user
         $manager = Array();
-        $manager['manager_id_manager'] = $result->manager_id_manager;
+        $manager['id_manager'] = $result->id_manager;
         $manager['manager_username'] = $result->manager_username;
         $manager['manager_first_name'] = $result->manager_first_name;
         $manager['manager_last_name'] = $result->manager_last_name;
@@ -79,18 +79,21 @@ class ManagersManagement {
         $query = $CI_instance->db->select('*')
                                  ->from('users')
                                  ->join('managers','users.manager_id = managers.id_manager')
-                                 ->where('managers.email',$email_manager);
+                                 ->where('managers.manager_email',$email_manager);
         
         $result = $query->get();
         $result = $result->result();
 
         if (count($result)>0)
         {
+           
             foreach ($result as $key => $value) 
             {   
+          
             $CI_instance->load->model('entities/User');
-            $user = new User();
+            $temporary_user_element = new User();
             
+            $temporary_user_element->manager_id = $value->manager_id;
             $temporary_user_element->id_user = $value->id_user;
             $temporary_user_element->username = $value->username;
             $temporary_user_element->first_name = $value->first_name;
@@ -100,6 +103,7 @@ class ManagersManagement {
             $temporary_user_element->password=$value->password;
             $temporary_user_element->function=$value->function;
             $users[$key]=$temporary_user_element;
+            
             }
         return $users;   
         }
