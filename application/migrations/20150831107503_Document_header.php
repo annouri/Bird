@@ -14,6 +14,17 @@ class Migration_Document_header extends CI_Migration {
                                 'unsigned' => TRUE,
                                 'auto_increment' => TRUE
                         ),
+                         'userd_id' => array(
+                                'type' => 'INT',
+                                'constraint' => '11',
+                                'unsigned' => TRUE,
+                        ),
+                        'managerd_id' => array(
+                                'type' => 'INT',
+                                'constraint' => '11',
+                                'unsigned' => TRUE,
+                        
+                        ),
                         'type' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '100',
@@ -47,35 +58,25 @@ class Migration_Document_header extends CI_Migration {
                         ),
                         'due_date' => array(
                                 'type' => 'DATETIME',
-                                  
-                        ),
-                        'location' => array(
-                                'type' => 'INT',
-                                'constraint' => '11',
                                 
                         ),
-                        'userd_id' => array(
-                                'type' => 'INT',
-                                'constraint' => '11',
-                                'unsigned' => TRUE,
+                        'location' => array(
+                                'type' => 'VARCHAR',
+                                'constraint' => '200',
+                                
                         ),
-                        'managerd_id' => array(
-                                'type' => 'INT',
-                                'constraint' => '11',
-                                'unsigned' => TRUE,
-                        
-                        ),
+                       
                         
                 ));
                 $this->dbforge->add_key('id_document_header',TRUE);
                 $this->dbforge->create_table('document_header');
                 $this->db->query('ALTER TABLE document_header ENGINE=InnoDB;');
-                $this->db->query('ALTER TABLE document_header ADD CONSTRAINT fk_document_header_userID FOREIGN KEY (userd_id) REFERENCES users(id_user) ON UPDATE CASCADE ON DELETE CASCADE;');
-                $this->db->query('ALTER TABLE document_header ADD CONSTRAINT fk_document_header_managerID FOREIGN KEY (managerd_id) REFERENCES managers(id_manager) ON UPDATE CASCADE ON DELETE CASCADE;');
+                $this->db->query('ALTER TABLE document_header ADD CONSTRAINT FOREIGN KEY (userd_id) REFERENCES users(id_user) ON UPDATE CASCADE ON DELETE CASCADE;');
+                $this->db->query('ALTER TABLE document_header ADD CONSTRAINT FOREIGN KEY (managerd_id) REFERENCES managers(id_manager) ON UPDATE CASCADE ON DELETE CASCADE;');
                 
 
                 echo '<td><i class="fa fa-check"></i></td>';
-                
+               // $this->seed();
                 
                 echo '<td><i class="fa fa-check"></i></td>';
         }

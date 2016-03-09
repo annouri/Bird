@@ -57,7 +57,7 @@ class Migration_Users extends CI_Migration {
                 $this->db->query('ALTER TABLE users ENGINE=InnoDB;');
                 $this->db->query('ALTER TABLE users ADD CONSTRAINT fk_users_fileID FOREIGN KEY (manager_id) REFERENCES managers(id_manager) ON UPDATE CASCADE ON DELETE CASCADE;');
                 echo '<td><i class="fa fa-check"></i></td>';
-                $this->seed();
+               // $this->seed();
                 echo '<td><i class="fa fa-check"></i></td>';
         }
 

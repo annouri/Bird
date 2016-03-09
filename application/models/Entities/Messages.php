@@ -5,9 +5,9 @@ class Messages extends CI_Model {
 	var $object='';
 	var $content='';
 	var $date='';
-	var $sender='';
-	var $receiver='';
-	var $date='';
+	var $id_from=NULL;
+	var $id_to=NULL;
+	var $message_created_date='';
 
 	
 

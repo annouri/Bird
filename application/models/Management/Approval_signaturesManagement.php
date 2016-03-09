@@ -1,7 +1,16 @@
 <?php
 
-class MessagesManagement extends CI_Model {
+class Approval_signaturesManagement extends CI_Model {
 
+    public function get_all_approval_signature()
+    {
+
+    }
+    public function get_approval_signature_by_document($id_documentHeader)
+    {}
+    public function get_approval_signature_by_date($dateMin,$dateMax)
+    {}
+    
     public function get_message_user($userA,$userB)
     {
         $this->db->select('*');

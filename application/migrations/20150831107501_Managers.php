@@ -48,7 +48,7 @@ class Migration_Managers extends CI_Migration {
                 ));
 				$this->dbforge->add_key('id_manager',TRUE);
                 $this->dbforge->create_table('managers');
-                $this->seed();
+                //$this->seed();
 	}
 	public function down()
         {
