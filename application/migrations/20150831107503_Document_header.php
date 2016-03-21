@@ -65,6 +65,15 @@ class Migration_Document_header extends CI_Migration {
                                 'constraint' => '200',
                                 
                         ),
+                        'document_header_creation_date' => array(
+                                'type' => 'DATETIME',
+                                
+                        ),
+                        'document_header_updated_date' => array(
+                                'type' => 'DATETIME',
+                                
+                        ),
+                        
                        
                         
                 ));

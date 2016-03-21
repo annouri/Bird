@@ -37,6 +37,8 @@ class Document_headerManagement {
             $temporary_Document_header_element->responsibles=$value->responsibles;
             $temporary_Document_header_element->managerd_id=$value->managerd_id;
             $temporary_Document_header_element->location = $value->location;
+            $temporary_Document_header_element->document_header_creation_date = $value->document_header_creation_date;
+            $temporary_Document_header_element->document_header_updated_date = $value->document_header_updated_date;
             $Document_headers[$key]=$temporary_Document_header_element;
             }
         return $Document_headers;   
@@ -79,6 +81,9 @@ class Document_headerManagement {
             $temporary_Document_header_element->responsibles=$value->responsibles;
             $temporary_Document_header_element->managerd_id=$value->managerd_id;
             $temporary_Document_header_element->location = $value->location;
+            $temporary_Document_header_element->document_header_creation_date = $value->document_header_creation_date;
+            $temporary_Document_header_element->document_header_updated_date = $value->document_header_updated_date;
+            
             $Document_headers[$key]=$temporary_Document_header_element;
             }
         return $Document_headers;   
@@ -119,6 +124,9 @@ class Document_headerManagement {
             $temporary_Document_header_element->responsibles=$value->responsibles;
             $temporary_Document_header_element->managerd_id=$value->managerd_id;
             $temporary_Document_header_element->location = $value->location;
+            $temporary_Document_header_element->document_header_creation_date = $value->document_header_creation_date;
+            $temporary_Document_header_element->document_header_updated_date = $value->document_header_updated_date;
+            
             $Document_headers[$key]=$temporary_Document_header_element;
             }
         return $Document_headers;   
@@ -158,6 +166,9 @@ class Document_headerManagement {
             $temporary_Document_header_element->responsibles=$value->responsibles;
             $temporary_Document_header_element->managerd_id=$value->managerd_id;
             $temporary_Document_header_element->location = $value->location;
+            $temporary_Document_header_element->document_header_creation_date = $value->document_header_creation_date;
+            $temporary_Document_header_element->document_header_updated_date = $value->document_header_updated_date;
+            
             $Document_headers[$key]=$temporary_Document_header_element;
             }
         return $Document_headers;   

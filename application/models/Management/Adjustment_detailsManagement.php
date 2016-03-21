@@ -37,6 +37,7 @@ class Adjustment_detailsManagement {
     }
     
     
+   
     public static function get_adjustment_details_by_user($email)
     {
         $CI_instance= & get_instance();
